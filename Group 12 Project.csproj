@@ -74,6 +74,7 @@
     <Content Include="register.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="success.aspx" />
+    <Content Include="thankYou.aspx" />
     <Content Include="update.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="success.aspx.designer.cs">
       <DependentUpon>success.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="thankYou.aspx.cs">
+      <DependentUpon>thankYou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="thankYou.aspx.designer.cs">
+      <DependentUpon>thankYou.aspx</DependentUpon>
     </Compile>
     <Compile Include="update.aspx.cs">
       <DependentUpon>update.aspx</DependentUpon>
