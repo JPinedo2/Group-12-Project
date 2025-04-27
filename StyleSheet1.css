@@ -1,0 +1,40 @@
+﻿/* Fun and playful style */
+body {
+    background-image: url('images/pawBkg.png'); /* Replace with your image path */
+    background-repeat: repeat;
+    background-size: cover;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Optional: center content */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Fun headings */
+h1, h2, h3 {
+    color: #5a2d82; /* Dark Purple */
+}
+
+/* Styling for hyperlinks */
+a {
+    color: #5a2d82; /* Dark purple by default */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition when hovering */
+}
+
+    a:hover {
+        color: #ffcc00; /* Warm yellow on hover */
+    }
+
+    a:active {
+        color: #ff9900; /* Warm yellow when clicked (active state) */
+    }
