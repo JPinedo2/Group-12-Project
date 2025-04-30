@@ -70,6 +70,7 @@
     <Content Include="default.aspx" />
     <Content Include="delete.aspx" />
     <Content Include="donations.aspx" />
+    <Content Include="grooming.aspx" />
     <Content Include="read.aspx" />
     <Content Include="register.aspx" />
     <Content Include="StyleSheet1.css" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="donations.aspx.designer.cs">
       <DependentUpon>donations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grooming.aspx.cs">
+      <DependentUpon>grooming.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grooming.aspx.designer.cs">
+      <DependentUpon>grooming.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="read.aspx.cs">
