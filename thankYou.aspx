@@ -8,6 +8,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 class="auto-style2">Thank you for you donation!</h2>
+    <p class="auto-style2">Click
+        <asp:HyperLink ID="lnkSuccess" runat="server" NavigateUrl="~/success.aspx">here</asp:HyperLink>
+&nbsp;to go to main account directory.</p>
 <p class="auto-style2">
     &nbsp;</p>
 <p class="auto-style2">

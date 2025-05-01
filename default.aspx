@@ -31,6 +31,6 @@
     <p class="auto-style2" data-end="1182" data-start="928">
         &nbsp;</p>
     <p class="auto-style2" data-end="1182" data-start="928">
-        <asp:Image ID="Image1" runat="server" Height="244px" ImageUrl="C:\Users\jp1205\Desktop\BCIS 4720\Group 12 Project\Images\bPark.png" Width="284px" />
+        <asp:Image ID="Image1" runat="server" Height="244px" ImageUrl="\Images\bPark.png" Width="284px" />
     </p>
 </asp:Content>

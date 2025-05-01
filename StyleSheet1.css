@@ -1,13 +1,12 @@
 ﻿/* Fun and playful style */
 body {
-    background-image: url('images/pawBkg.png'); /* Replace with your image path */
-    background-repeat: repeat;
-    background-size: cover;
+    background-color: #d0e7ff; /* Sky blue */
     font-family: 'Comic Sans MS', 'Comic Sans', cursive;
     color: #333;
     margin: 0;
     padding: 0;
 }
+
 
 /* Optional: center content */
 .container {

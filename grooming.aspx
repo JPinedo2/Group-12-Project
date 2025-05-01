@@ -42,6 +42,6 @@
     </p>
 
     <p class="auto-style2">
-        Book your grooming or walking session today through our online portal or at the front desk!
+        We only accept walk-ins so please come see us at the front desk!
     </p>
 </asp:Content>

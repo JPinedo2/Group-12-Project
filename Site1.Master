@@ -27,8 +27,7 @@
             &nbsp;|
             <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/register.aspx">Register</asp:HyperLink>
             &nbsp;|
-            <asp:HyperLink ID="lnkDonate" runat="server" NavigateUrl="~/donations.aspx">Donate</asp:HyperLink>
-        </div>
+            </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p>
