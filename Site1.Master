@@ -17,15 +17,16 @@
 
 </head>
 <body>
-
     <form id="form1" runat="server">
         <div class="auto-style1">
-        <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/default.aspx">Home</asp:HyperLink>
-&nbsp;|
-        <asp:HyperLink ID="lnkRead" runat="server" NavigateUrl="~/read.aspx">Login</asp:HyperLink>
-&nbsp;|
+            <asp:HyperLink ID="lnkHome" runat="server" NavigateUrl="~/default.aspx">Home</asp:HyperLink>
+            &nbsp;|
+            <asp:HyperLink ID="lnkGrooming" runat="server" NavigateUrl="~/grooming.aspx">Grooming</asp:HyperLink>
+            &nbsp;|
+            <asp:HyperLink ID="lnkRead" runat="server" NavigateUrl="~/read.aspx">Login</asp:HyperLink>
+            &nbsp;|
             <asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/register.aspx">Register</asp:HyperLink>
-        &nbsp;|
+            &nbsp;|
             <asp:HyperLink ID="lnkDonate" runat="server" NavigateUrl="~/donations.aspx">Donate</asp:HyperLink>
         </div>
         <div>
