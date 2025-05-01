@@ -30,19 +30,23 @@ namespace Group_12_Project
             if (Session["email"].ToString() == txtEmail.Text)
             {
                 // Establish a new connection using the SqlDataSource
-                SqlConnection dcon = new SqlConnection(SqlDataSource1.ConnectionString);
+                SqlConnection dcon = new SqlConnection(SqlDataSource5.ConnectionString);
 
                 // Prepare the delete command from the SqlDataSource
-                SqlCommand dcommand = new SqlCommand(SqlDataSource1.DeleteCommand, dcon);
+                SqlCommand deleteDonations = new SqlCommand("DELETE FROM Donations WHERE Email = @Email", dcon);
+                SqlCommand dcommand = new SqlCommand(SqlDataSource5.DeleteCommand, dcon);
+                
 
                 // Assign connection to command object
                 dcommand.Connection = dcon;
 
                 // Add parameter value for deletion
+                deleteDonations.Parameters.AddWithValue("@Email", Session["email"].ToString());
                 dcommand.Parameters.AddWithValue("@Email", Session["email"].ToString());
 
                 // Open connection and execute deletion
                 dcon.Open();
+                deleteDonations.ExecuteNonQuery();
                 dcommand.ExecuteNonQuery();
                 dcon.Close();
 

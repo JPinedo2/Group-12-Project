@@ -63,9 +63,9 @@
         </table>
     </div>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server"
         ConnectionString="<%$ ConnectionStrings:S25Team12ConnectionString2 %>"
-        DeleteCommand="DELETE FROM [Member] WHERE [Email] = @Email" InsertCommand="INSERT INTO [Member] ([Email], [Password], [FName], [LName], [YOB]) VALUES (@Email, @Password, @FName, @LName, @YOB)" SelectCommand="SELECT * FROM [Member] WHERE (([Email] = @Email) AND ([Email] = @Email2))" UpdateCommand="UPDATE [Member] SET [Password] = @Password, [FName] = @FName, [LName] = @LName, [YOB] = @YOB WHERE [Email] = @Email">
+        DeleteCommand="DELETE FROM [Member] WHERE [Email] = @Email" InsertCommand="INSERT INTO [Member] ([Email], [Password], [FName], [LName], [YOB]) VALUES (@Email, @Password, @FName, @LName, @YOB)" SelectCommand="SELECT * FROM [Member] WHERE ([Email] = @Email)" UpdateCommand="UPDATE [Member] SET [Password] = @Password, [FName] = @FName, [LName] = @LName, [YOB] = @YOB WHERE [Email] = @Email">
         <DeleteParameters>
             <asp:Parameter Name="Email" Type="String" />
         </DeleteParameters>
@@ -78,7 +78,6 @@
         </InsertParameters>
         <SelectParameters>
             <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Email2" Type="String" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="Password" Type="String" />

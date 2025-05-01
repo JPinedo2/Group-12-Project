@@ -15,13 +15,22 @@ namespace Group_12_Project
     {
 
         /// <summary>
-        /// lblNewVal control.
+        /// lnkLogoff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewVal;
+        protected global::System.Web.UI.WebControls.HyperLink lnkLogoff;
+
+        /// <summary>
+        /// lblNInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNInfo;
 
         /// <summary>
         /// lblEmail control.
@@ -87,13 +96,13 @@ namespace Group_12_Project
         protected global::System.Web.UI.WebControls.TextBox txtPassC;
 
         /// <summary>
-        /// cvPassC control.
+        /// cvPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator cvPassC;
+        protected global::System.Web.UI.WebControls.CompareValidator cvPass;
 
         /// <summary>
         /// cbFName control.
@@ -195,22 +204,22 @@ namespace Group_12_Project
         protected global::System.Web.UI.WebControls.TextBox txtYOB;
 
         /// <summary>
-        /// rfvYOB control.
+        /// revYOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvYOB;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revYOB;
 
         /// <summary>
-        /// SqlDataSource1 control.
+        /// SqlDataSource3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
         /// btnUpdate control.

@@ -4,35 +4,35 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//database controls
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices;
-using System.Diagnostics.Eventing.Reader;
+using System.EnterpriseServices;
 
-namespace Read
+
+namespace Group_12_Project
 {
     public partial class update : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //asking for information before any input from user
+            //Asking for info. w/o button being clicked
             if (!IsPostBack)
             {
                 if (Session["user"] != null)
                 {
-                    //declare a datareader to store query results
+
+                    //Declare a sqldatareader to store query results
                     SqlDataReader myReader;
 
-                    //declare connection for database
-                    SqlConnection myConn = new SqlConnection(SqlDataSource1.ConnectionString);
+                    //Declare sqlconnection to connect to database
+                    SqlConnection myCnxn = new SqlConnection(SqlDataSource3.ConnectionString);
 
-                    //declare command
-                    SqlCommand myCommand = new SqlCommand(SqlDataSource1.SelectCommand);
+                    //Declare sql command
+                    SqlCommand myCommand = new SqlCommand(SqlDataSource3.SelectCommand);
 
                     //set connection
-                    myCommand.Connection = myConn;
+                    myCommand.Connection = myCnxn;
 
                     //set parameter
                     //populate email
@@ -40,14 +40,13 @@ namespace Read
                     myCommand.Parameters.AddWithValue("@Email", Session["email"].ToString());
                     myCommand.Parameters.AddWithValue("@Password", txtPass.Text);
 
-                    //open database connection
-                    myConn.Open();
+                    //Open database connection
+                    myCnxn.Open();
 
                     //execute command
                     myReader = myCommand.ExecuteReader(CommandBehavior.CloseConnection);
 
 
-                    //the while command happens after the execute command
                     while (myReader.Read())
                     {
                         lblEmail.Text = myReader.GetString(0);
@@ -55,107 +54,95 @@ namespace Read
                         lblFName.Text = myReader.GetString(2);
                         lblLName.Text = myReader.GetString(3);
                         lblYOB.Text = myReader.GetInt32(4).ToString();
-
                     }
-                    //close the connection
-                    myConn.Close();
+                    //close connection
+                    myCnxn.Close();
 
-                    //turn off all controls. only want to show them at the requested time
+                    //Turn off controls. Show only when requestd time.
                     txtPass.Visible = false;
                     txtPassC.Visible = false;
                     txtFName.Visible = false;
                     txtLName.Visible = false;
                     txtYOB.Visible = false;
 
-                    //turn off validation control
-                    //rfvPassword.Visible = false;
-                    //rfvFName.Visible = false;
-                    //rfvLName.Visible = false;
-                    //rfvYOB.Visible = false;
-                    //cvPass.Visible = false;
+                    //Hide update labels
+                    lblPassC.Visible = false;
+                    lblNInfo.Visible = false;
 
-                    //hide the update labels
-                    lblPass.Visible = false;
-                    lblNewValue.Visible = false;
-                    lblConfirm.Visible = false;
-                    lblFName.Visible = false;
-                    lblLName.Visible = false;
-                    lblYOB.Visible = false;
-
-                    //make sure all the checkboxes are unchecked
+                    //Make sure all checkboxes are unchecked
                     cbPass.Checked = false;
                     cbFName.Checked = false;
                     cbLName.Checked = false;
                     cbYOB.Checked = false;
-
                 }
                 else
                 {
-                    Response.Redirect("read.aspx");
+                    Response.Redirect("default.aspx");
                 }
             }
         }
+
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            //move code from the txt box to the insert statement
-            //declare the connection
-            SqlConnection UCon = new SqlConnection(SqlDataSource1.ConnectionString);
+            //move values from text boxes to insert statment
+            //declare sql connection
+            SqlConnection updateCon = new SqlConnection(SqlDataSource3.ConnectionString);
 
             //declare command
-            SqlCommand UCommand = new SqlCommand(SqlDataSource1.UpdateCommand);
-            UCommand.Connection = UCon;
+            SqlCommand updateCommand = new SqlCommand(SqlDataSource3.UpdateCommand);
+            updateCommand.Connection = updateCon;
 
-            //set parameter for the email
-            UCommand.Parameters.AddWithValue("@Email", Session["email"].ToString());
+            //set email parameter
+            updateCommand.Parameters.AddWithValue("@Email", Session["email"].ToString());
 
-            //set the parameter for the password
+            //Set password parameter
             if (cbPass.Checked == true)
             {
-                UCommand.Parameters.AddWithValue("@Password", txtPass.Text);
+                updateCommand.Parameters.AddWithValue("@Password", txtPass.Text);
             }
             else
             {
-                UCommand.Parameters.AddWithValue("@Password", lblPass.Text);
+                updateCommand.Parameters.AddWithValue("@Password", lblPass.Text);
             }
-
-            //set parameters for FName, LName, and YOB
+            //FName Parameter
             if (cbFName.Checked == true)
             {
-                UCommand.Parameters.AddWithValue("@FName", txtFName.Text);
+                updateCommand.Parameters.AddWithValue("@FName", txtFName.Text);
             }
             else
             {
-                UCommand.Parameters.AddWithValue("@FName", lblFName.Text);
+                updateCommand.Parameters.AddWithValue("@FName", lblFName.Text);
             }
-            //LName param
+            //LName Parameter
             if (cbLName.Checked == true)
             {
-                UCommand.Parameters.AddWithValue("@LName", txtLName.Text);
+                updateCommand.Parameters.AddWithValue("@LName", txtLName.Text);
             }
             else
             {
-                UCommand.Parameters.AddWithValue("@LName", lblLName.Text);
+                updateCommand.Parameters.AddWithValue("@LName", lblLName.Text);
             }
-            //YOB param
+            //YOB Parameter
             if (cbYOB.Checked == true)
             {
-                UCommand.Parameters.AddWithValue("@YOB", txtYOB.Text);
+                updateCommand.Parameters.AddWithValue("@YOB", txtYOB.Text);
             }
             else
             {
-                UCommand.Parameters.AddWithValue("@YOB", lblYOB.Text);
+                updateCommand.Parameters.AddWithValue("@YOB", lblYOB.Text);
             }
 
-            //open the connection
-            UCon.Open();
 
-            //excute the command
-            UCommand.ExecuteNonQuery();
+            //open the connection
+            updateCon.Open();
+
+            //insert command
+            updateCommand.ExecuteNonQuery();
 
             //close the connection
-            UCon.Close();
+            updateCon.Close();
 
-            //show the users changes
+            //send to a page
             Response.Redirect("update.aspx");
         }
 
@@ -165,20 +152,18 @@ namespace Read
             {
                 txtPass.Visible = true;
                 txtPassC.Visible = true;
-                rfvPassword.Enabled = true;
-                lblNewValue.Visible = true;
-                lblConfirm.Visible = true;
-                lblPass.Visible = true;
+                rfvPass.Enabled = true;
+                lblNInfo.Visible = true;
+                lblPassC.Visible = true;
                 cvPass.Enabled = true;
             }
             else
             {
                 txtPass.Visible = false;
                 txtPassC.Visible = false;
-                rfvPassword.Enabled = false;
-                lblNewValue.Visible = false;
-                lblConfirm.Visible = false;
-                lblPass.Visible = false;
+                rfvPass.Enabled = false;
+                lblNInfo.Visible = false;
+                lblPassC.Visible = false;
                 cvPass.Enabled = false;
             }
         }
@@ -189,15 +174,13 @@ namespace Read
             {
                 txtFName.Visible = true;
                 rfvFName.Enabled = true;
-                lblNewValue.Visible = true;
-                lblFName.Visible = true;
+                lblNInfo.Visible = true;
             }
             else
             {
                 txtFName.Visible = false;
                 rfvFName.Enabled = false;
-                lblNewValue.Visible = false;
-                lblFName.Visible = false;
+                lblNInfo.Visible = false;
             }
         }
 
@@ -207,15 +190,13 @@ namespace Read
             {
                 txtLName.Visible = true;
                 rfvLName.Enabled = true;
-                lblNewValue.Visible = true;
-                lblLName.Visible = true;
+                lblNInfo.Visible = true;
             }
             else
             {
                 txtLName.Visible = false;
                 rfvLName.Enabled = false;
-                lblNewValue.Visible = false;
-                lblLName.Visible = false;
+                lblNInfo.Visible = false;
             }
         }
 
@@ -224,16 +205,14 @@ namespace Read
             if (cbYOB.Checked == true)
             {
                 txtYOB.Visible = true;
-                rfvYOB.Enabled = true;
-                lblNewValue.Visible = true;
-                lblYOB.Visible = true;
+                revYOB.Enabled = true;
+                lblNInfo.Visible = true;
             }
             else
             {
                 txtYOB.Visible = false;
-                rfvYOB.Enabled = false;
-                lblNewValue.Visible = false;
-                lblYOB.Visible = false;
+                revYOB.Enabled = false;
+                lblNInfo.Visible = false;
             }
         }
     }
